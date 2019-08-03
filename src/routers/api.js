@@ -1,8 +1,9 @@
-const express = require("express");
+const router = require("express").Router();
 
-const router = express.Router();
+const weatherRouter = require("./weather");
+const moodRouter = require("./mood");
 
-router.use("/v1/weather");
-router.use("/v1/mood");
+router.use("/v1/weather", weatherRouter);
+router.use("/v1/mood", moodRouter);
 
 module.exports = router;
