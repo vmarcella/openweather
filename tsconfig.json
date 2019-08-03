@@ -5,8 +5,9 @@
     "outDir": "./esm",
     "module": "es6",
     "target": "es5",
-    "noImplicitAny": true,
-    "moduleResolution": "node"
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*"
