@@ -9,10 +9,9 @@ module.exports.getWeatherByCity = async (req, res) => {
     }
     await weather.getWeatherByName(req.query.city);
   } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      status: "INTERNAL ERROR",
-      msg: "Endpoint could not be accessed",
+    res.status(err.status).json({
+      status: "FAILED",
+      msg: err.message,
     });
   }
 };
