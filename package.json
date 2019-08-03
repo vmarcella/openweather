@@ -2,10 +2,13 @@
   "name": "openweather",
   "version": "1.0.0",
   "description": "openweather api",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "C3NZ",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
 }
