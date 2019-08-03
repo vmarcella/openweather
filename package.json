@@ -2,10 +2,10 @@
   "name": "openweather",
   "version": "1.0.0",
   "description": "openweather api",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "run": "tsc src/index.ts"
+    "start": "node src/index.js"
   },
   "author": "C3NZ",
   "license": "MIT",
@@ -21,6 +21,7 @@
   "dependencies": {
     "@overnightjs/core": "^1.6.9",
     "@types/express": "^4.17.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "openweather-apis": "^4.0.0"
   }
