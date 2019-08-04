@@ -3,6 +3,13 @@ const axios = require("axios");
 const appID = process.env.OPENWEATHER_KEY;
 const ENDPOINT = `https://api.openweathermap.org/data/2.5/weather?APPID=${appID}`;
 
+/**
+ * @function
+ * @desc Contact the openweather api to get weather data
+ * @param {String} url- The endpoint url with query strings attached to make a request to.
+ * @return {Object} the weather object containing weather data about the particular
+ * area.
+ */
 const handleRequest = async (url) => {
   try {
     const response = await axios.get(url);
@@ -23,18 +30,55 @@ const handleRequest = async (url) => {
   }
 };
 
-module.exports.getWeatherByName = async (cityName) => {
+/**
+ * @function
+ * @desc Get the weather by the city name and the country
+ * @param {String} cityName- The zip code for the city
+ * @param {String} country - The country for the city
+ * @return {Object} the weather object containing weather data about the particular
+ * area.
+ */
+module.exports.getWeatherByName = async (cityName, country = "us") => {
   try {
     // Obtain the city data by name
-    const query = `&q=${cityName}`;
+    const query = `&q=${cityName},${country}`;
     return await handleRequest(ENDPOINT + query);
   } catch (err) {
     throw err;
   }
 };
 
+/**
+ * @function
+ * @desc Get the weather by the city ID
+ * @param {String} cityID - The city ID for the city
+ * @return {Object} the weather object containing weather data about the particular
+ * area.
+ */
 module.exports.getWeatherById = async (cityID) => {
-  const query = `&id=${cityID}`;
-  const response = await axios.get(ENDPOINT + query);
-  console.log(response);
+  try {
+    // Obtain the city data by ID
+    const query = `&id=${cityID}`;
+    return await handleRequest(ENDPOINT + query);
+  } catch (err) {
+    throw err;
+  }
+};
+
+/**
+ * @function
+ * @desc Get the weather by the zipcode and country
+ * @param {String} zip - The zip code for the city
+ * @param {String} country - The country for the city
+ * @return {Object} the weather object containing weather data about the particular
+ * area.
+ */
+module.exports.getWeatherByZipCode = async (zip, country = "us") => {
+  try {
+    // Obtain the city data by name
+    const query = `&zip=${zip},${country}`;
+    return await handleRequest(ENDPOINT + query);
+  } catch (err) {
+    throw err;
+  }
 };
