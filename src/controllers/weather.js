@@ -1,19 +1,60 @@
 const weather = require("../lib/weather");
 
-const processQueryStrings = (queryString) => {};
-
 module.exports.getWeatherByCity = async (req, res) => {
   try {
     if (!req.query.city) {
-      res.json({ status: "FAILED", msg: "City not provided as a query param" });
+      return res
+        .status(422)
+        .json({ status: "FAILED", msg: "City not provided as a query param" });
     }
-    await weather.getWeatherByName(req.query.city);
+    const weatherData = await weather.getWeatherByName(
+      req.query.city,
+      req.query.country ? req.query.country : "us",
+    );
+    return res.json({ status: "OK", weather: weatherData });
   } catch (err) {
-    res.status(err.status).json({
+    return res.status(err.status).json({
       status: "FAILED",
       msg: err.message,
     });
   }
 };
-module.exports.getWeatherByZipCode = (req, res) => {};
-module.exports.getWeatherByCoordinates = (req, res) => {};
+
+module.exports.getWeatherByID = async (req, res) => {
+  try {
+    if (!req.query.id) {
+      return res
+        .status(422)
+        .json({ status: "FAILED", msg: "ID not provided as a query param" });
+    }
+    const weatherData = await weather.getWeatherById(req.query.id);
+    return res.json({ status: "OK", weather: weatherData });
+  } catch (err) {
+    return res.status(err.status).json({
+      status: "FAILED",
+      msg: err.message,
+    });
+  }
+};
+
+module.exports.getWeatherByZipCode = async (req, res) => {
+  try {
+    if (!req.query.zip) {
+      return res.status(422).json({
+        status: "FAILED",
+        msg: "zip code not provided as a query param",
+      });
+    }
+    // Get the weather data
+    const weatherData = await weather.getWeatherByZip(
+      req.query.zip,
+      req.query.country ? req.query.country : "us",
+    );
+    return res.json({ status: "OK", weather: weatherData });
+  } catch (err) {
+    return res.status(err.status).json({
+      status: "FAILED",
+      msg: err.message,
+    });
+  }
+};
