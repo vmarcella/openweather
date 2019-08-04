@@ -73,7 +73,7 @@ module.exports.getWeatherById = async (cityID) => {
  * @return {Object} the weather object containing weather data about the particular
  * area.
  */
-module.exports.getWeatherByZipCode = async (zip, country = "us") => {
+module.exports.getWeatherByZip = async (zip, country = "us") => {
   try {
     // Obtain the city data by name
     const query = `&zip=${zip},${country}`;
