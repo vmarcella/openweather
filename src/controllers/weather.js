@@ -1,5 +1,14 @@
 const weather = require("../lib/weather");
 
+/**
+ * @function
+ * @desc Get the weather by city name through the query parameters
+ * @param req - The express Request context
+ * @param res - The express Response context
+ * @return A JSON response
+ * @example
+ * GET /api/v1/weather/city?city=San Francisco&country=us -> {SF weather data}
+ */
 module.exports.getWeatherByCity = async (req, res) => {
   try {
     if (!req.query.city) {
@@ -20,6 +29,15 @@ module.exports.getWeatherByCity = async (req, res) => {
   }
 };
 
+/**
+ * @function
+ * @desc Get the weather by id through the query parameter: id
+ * @param req - The express Request context
+ * @param res - The express Response context
+ * @return A JSON response
+ * @example
+ * GET /api/v1/weather/id?id=5391959 -> {SF weather data}
+ */
 module.exports.getWeatherByID = async (req, res) => {
   try {
     if (!req.query.id) {
@@ -37,6 +55,15 @@ module.exports.getWeatherByID = async (req, res) => {
   }
 };
 
+/**
+ * @function
+ * @desc Get the weather by city name
+ * @param req - The express Request context
+ * @param res - The express Response context
+ * @return A JSON response
+ * @example
+ * GET /api/v1/weather/zip?zip=94102&country=us -> {SF weather data}
+ */
 module.exports.getWeatherByZipCode = async (req, res) => {
   try {
     if (!req.query.zip) {
@@ -52,7 +79,7 @@ module.exports.getWeatherByZipCode = async (req, res) => {
     );
     return res.json({ status: "OK", weather: weatherData });
   } catch (err) {
-    return res.status(err.status).json({
+    return res.status(err.status || 500).json({
       status: "FAILED",
       msg: err.message,
     });
