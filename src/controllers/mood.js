@@ -8,7 +8,7 @@ const weather = require("../lib/weather");
  * @param res - The Express response context
  * @return {Object} - All of the stored mood data about cities
  * @example
- * GET /api/v1/moods
+ * GET /api/v1/moods -> {Mood object}
  */
 module.exports.getMoods = async (req, res) => {
   try {
@@ -24,9 +24,9 @@ module.exports.getMoods = async (req, res) => {
  * @desc Get all the moods ever stored on the server
  * @param req - The Express request context
  * @param res - The Express response context
- * @return {Object} - All of the stored mood data about cities
+ * @return {Object} - The mood object for the requested mood object
  * @example
- * GET /api/v1/moods
+ * GET /api/v1/mood/:moodId -> {Mood object}
  */
 module.exports.getMood = async (req, res) => {
   try {
@@ -42,9 +42,9 @@ module.exports.getMood = async (req, res) => {
  * @desc Get all the moods ever stored on the server
  * @param req - The Express request context
  * @param res - The Express response context
- * @return {Object} - All of the stored mood data about cities
+ * @return {Object} - the mood of an object for a particular city
  * @example
- * GET /api/v1/moods
+ * GET /api/v1/moods/city?city=San Francisco -> [{List of mood objects}]
  */
 module.exports.getMoodsByCity = async (req, res) => {
   if (!req.query.city) {
@@ -66,9 +66,9 @@ module.exports.getMoodsByCity = async (req, res) => {
  * @desc Send a mood about a city to the server
  * @param req - The Express request context
  * @param res - The Express response context
- * @return {Object} - All of the stored mood data about cities
+ * @return {Object} - The created mood object with information about the weather
  * @example
- * GET /api/v1/moods
+ * POST /api/v1/moods?city=San Francisco { mood: "Happy"} -> {Mood object}
  */
 module.exports.postMood = async (req, res) => {
   // user entered

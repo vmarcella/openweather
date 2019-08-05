@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const moodSchema = new Schema({
   mood: String,
   city: String,
-  weatherData: Object,
+  weather: Object
 });
 
 module.exports = model("Mood", moodSchema);
