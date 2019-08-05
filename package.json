@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "author": "C3NZ",
   "license": "MIT",
@@ -16,7 +16,8 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.0.2",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
     "@overnightjs/core": "^1.6.9",
