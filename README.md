@@ -1,14 +1,17 @@
 # Openweather API takehome project
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/C3NZ/openweather?style=plastic)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/C3NZ/openweather?style=plastic)
 ![GitHub issues](https://img.shields.io/github/issues/C3NZ/openweather?style=plastic)
 ![Twitter Follow](https://img.shields.io/twitter/follow/xC3NZ?style=social)
 
 ## Description
+
 This application is a simple api that allows users to retrieve the weather for any city and
 then fill in their mood for said weather in the city.
 
 ## Resources
+
 [Openweather]('https://openweathermap.org/')
 
 ## API
@@ -28,24 +31,27 @@ then fill in their mood for said weather in the city.
     -   [Examples](#examples-2)
 -   [getWeatherByName](#getweatherbyname)
     -   [Parameters](#parameters-3)
+    -   [Examples](#examples-3)
 -   [getWeatherById](#getweatherbyid-1)
     -   [Parameters](#parameters-4)
+    -   [Examples](#examples-4)
 -   [getWeatherByZip](#getweatherbyzip)
     -   [Parameters](#parameters-5)
+    -   [Examples](#examples-5)
 -   [handleRequest](#handlerequest)
     -   [Parameters](#parameters-6)
 -   [getMoods](#getmoods)
     -   [Parameters](#parameters-7)
-    -   [Examples](#examples-3)
+    -   [Examples](#examples-6)
 -   [getMood](#getmood)
     -   [Parameters](#parameters-8)
-    -   [Examples](#examples-4)
+    -   [Examples](#examples-7)
 -   [getMoodsByCity](#getmoodsbycity)
     -   [Parameters](#parameters-9)
-    -   [Examples](#examples-5)
+    -   [Examples](#examples-8)
 -   [postMood](#postmood)
     -   [Parameters](#parameters-10)
-    -   [Examples](#examples-6)
+    -   [Examples](#examples-9)
 
 ### getWeatherByCity
 
@@ -108,6 +114,12 @@ Get the weather by the city name and the country
 -   `country` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The country for the city (optional, default `"us"`)
 -   `cityName-null` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The zip code for the city
 
+#### Examples
+
+```javascript
+weather.getWeatherByName("San Francisco", country="us") -> {SF weather data from OW}
+```
+
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the weather object containing weather data about the particular
 area.
 
@@ -118,6 +130,12 @@ Get the weather by the city ID
 #### Parameters
 
 -   `cityID` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The city ID for the city
+
+#### Examples
+
+```javascript
+weather.getWeatherById(cityId) -> {City ID weather from OW}
+```
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the weather object containing weather data about the particular
 area.
@@ -130,6 +148,12 @@ Get the weather by the zipcode and country
 
 -   `zip` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The zip code for the city
 -   `country` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The country for the city (optional, default `"us"`)
+
+#### Examples
+
+```javascript
+weather.getWeatherByZip(94102, country='us') -> {SF weather data from OW}
+```
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the weather object containing weather data about the particular
 area.
