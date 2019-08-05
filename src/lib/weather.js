@@ -37,6 +37,8 @@ const handleRequest = async (url) => {
  * @param {String} country - The country for the city
  * @return {Object} the weather object containing weather data about the particular
  * area.
+ * @example
+ * weather.getWeatherByName("San Francisco", country="us") -> {SF weather data from OW}
  */
 module.exports.getWeatherByName = async (cityName, country = "us") => {
   try {
@@ -54,6 +56,8 @@ module.exports.getWeatherByName = async (cityName, country = "us") => {
  * @param {String} cityID - The city ID for the city
  * @return {Object} the weather object containing weather data about the particular
  * area.
+ * @example
+ * weather.getWeatherById(cityId) -> {City ID weather from OW}
  */
 module.exports.getWeatherById = async (cityID) => {
   try {
@@ -72,6 +76,8 @@ module.exports.getWeatherById = async (cityID) => {
  * @param {String} country - The country for the city
  * @return {Object} the weather object containing weather data about the particular
  * area.
+ * @example
+ * weather.getWeatherByZip(94102, country='us') -> {SF weather data from OW}
  */
 module.exports.getWeatherByZip = async (zip, country = "us") => {
   try {
