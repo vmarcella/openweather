@@ -10,9 +10,33 @@
 This application is a simple api that allows users to retrieve the weather for any city and
 then fill in their mood for said weather in the city.
 
+## How to run
+The first thing you need to do is have a working copy of node 8.16.0+ (version written on) and npm. The next thing you'll need
+is a copy of the project which you can obtain with:
+```
+git clone https://github.com/C3NZ/openweather.git
+```
+
+After getting the project folder, you can then do:
+```
+cd openweather
+npm install
+```
+
+This will install project dependencies/dev tools used to aid the project.
+To run the api, you can then do:
+```
+npm run start
+```
+
+After that, you are good to go! Refer to the API documentation for working with the API.
+
+
 ## Resources
 
-[Openweather]('https://openweathermap.org/')
+![Openweather]('https://openweathermap.org/')
+
+
 
 ## API
 
